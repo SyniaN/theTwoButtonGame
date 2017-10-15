@@ -9,24 +9,47 @@ import GemsCount from './GemsCount';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    width: 900px;
+    min-width: 990px;
+    max-width: 1500px;
+    height: 750px;
     margin: auto;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: center
+    justify-content: center;
+    background-color: salmon;
+`
+
+const GameWindowsRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+`
+
+const GameWindow = styled.div`
+    justify-content: space-between;
+    width: 400px;
+    flex: 1
 `
 
 export default class GameContainer extends React.Component {
     render(){
         return(
             <Wrapper>
-                <h4>Start of Game Container</h4>
                 <ProfileBar></ProfileBar>
-                <ProgressBar></ProgressBar>
-                <DisplayPort></DisplayPort>
-                <ButtonBar></ButtonBar>
-                <ItemBar></ItemBar>
+                <GameWindowsRow>
+                    <GameWindow>
+                        <ProgressBar></ProgressBar>
+                        <DisplayPort></DisplayPort>
+                        <ItemBar></ItemBar>
+                    </GameWindow>
+                    <GameWindow>
+                        <ProgressBar></ProgressBar>
+                        <DisplayPort></DisplayPort>
+                        <ItemBar></ItemBar>
+                    </GameWindow>
+                </GameWindowsRow>                
                 <GemsCount></GemsCount>
             </Wrapper>
         )

@@ -1,20 +1,22 @@
 import React from 'react'
+import Styled from 'styled-components'
+
+const Wrapper = Styled.div`
+    width: 100%;
+    color: red;
+    height: 100px;
+    background-color: #ccc;
+    border-style: dotted;
+`
 
 export default class Header extends React.Component {
 
     render(){
 
-        let headerStyle = {
-            width: "100%",
-            color: "red",
-            backgrounColor: "blue"
-        }
-
-
         return(
-            <div style={headerStyle}>
+            <Wrapper>
                 <p>This is my header</p>
-            </div>
+            </Wrapper>
         )
     }
 }
