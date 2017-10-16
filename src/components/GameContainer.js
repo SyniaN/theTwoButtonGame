@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileBar from './ProfileBar';
 import ProgressBar from './ProgressBar';
-import DisplayPort from './DisplayPort';
+import DisplayPortContainer from './DisplayPortContainer';
 import ButtonBar from './ButtonBar';
 import ItemBar from './ItemBar';
 import GemsCount from './GemsCount';
@@ -41,12 +41,12 @@ export default class GameContainer extends React.Component {
                 <GameWindowsRow>
                     <GameWindow>
                         <ProgressBar></ProgressBar>
-                        <DisplayPort></DisplayPort>
+                        <DisplayPortContainer></DisplayPortContainer>
                         <ItemBar></ItemBar>
                     </GameWindow>
                     <GameWindow>
                         <ProgressBar></ProgressBar>
-                        <DisplayPort></DisplayPort>
+                        <DisplayPortContainer></DisplayPortContainer>
                         <ItemBar></ItemBar>
                     </GameWindow>
                 </GameWindowsRow>                
