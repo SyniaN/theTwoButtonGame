@@ -29,19 +29,18 @@ export default class DisplayPort extends Component {
     }
 
     handleKeyPress(e){
+        console.log(e.key);        
         e.preventDefault();
-        console.log(e.key);
         if (e.key === "ArrowLeft"){
             this.props.onLeftSelect();
         } else if (e.key ==="ArrowRight") {
             this.props.onRightSelect();
         }
-
     }
 
     render(){
         return(
-            <FlexWrapper tabIndex="" onKeyDown={this.handleKeyPress}>
+            <FlexWrapper tabIndex="0" onKeyDown={this.handleKeyPress}>
                 <SideWrapper>
                     <SideDisplay item={this.props.leftItem}></SideDisplay>
                 </SideWrapper>

@@ -17,7 +17,7 @@ const defaultState = {
     right: "",
     current: "",
     upcoming: ["1", "2", "1", "1", "2", "2", "1", "1", "2", "2", "1", "2", "1"],
-    score: ""
+    score: 0
   }
 }
 
