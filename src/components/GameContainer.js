@@ -40,12 +40,12 @@ export default class GameContainer extends React.Component {
                 <GameWindowsRow>
                     <GameWindow>
                         <ProgressBarContainer person="player"></ProgressBarContainer>
-                        <DisplayPortContainer></DisplayPortContainer>
+                        <DisplayPortContainer person="player"></DisplayPortContainer>
                         <ItemBar></ItemBar>
                     </GameWindow>
                     <GameWindow>
                         <ProgressBarContainer person="opponent"></ProgressBarContainer>
-                        <DisplayPortContainer></DisplayPortContainer>
+                        <DisplayPortContainer person="opponent"></DisplayPortContainer>
                         <ItemBar></ItemBar>
                     </GameWindow>
                 </GameWindowsRow>                

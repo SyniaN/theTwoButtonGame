@@ -2,21 +2,22 @@ import {connect} from 'react-redux';
 import {inputLeft, inputRight} from '../actions';
 import DisplayPort from './DisplayPort';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        leftItem: state.input.playerStates.left,
-        centralItem: state.input.playerStates.current,
-        rightItem: state.input.playerStates.right
+        leftItem: state.input[ownProps.person+"States"].left,
+        centralItem: state.input[ownProps.person+"States"].current,
+        rightItem: state.input[ownProps.person+"States"].right,
+        tabIndex: ownProps.person === "player" ? "1": "2"
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onLeftSelect: () => {
-            dispatch(inputLeft())
+            dispatch(inputLeft(ownProps.person+"States"))
         },
         onRightSelect: () => {
-            dispatch(inputRight())
+            dispatch(inputRight(ownProps.person+"States"))
         }
     }
 }

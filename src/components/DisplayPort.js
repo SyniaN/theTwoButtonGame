@@ -40,7 +40,7 @@ export default class DisplayPort extends Component {
 
     render(){
         return(
-            <FlexWrapper tabIndex="0" onKeyDown={this.handleKeyPress}>
+            <FlexWrapper tabIndex={this.props.tabIndex} onKeyDown={this.handleKeyPress}>
                 <SideWrapper>
                     <SideDisplay item={this.props.leftItem}></SideDisplay>
                 </SideWrapper>

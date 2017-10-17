@@ -1,11 +1,13 @@
-export const inputLeft = () => {
+export const inputLeft = (playerType) => {
     return {
-        type: 'LEFT'
+        type: 'LEFT',
+        playerType
     }
 }
 
-export const inputRight = () => {
+export const inputRight = (playerType) => {
     return {
-        type: 'RIGHT'
+        type: 'RIGHT',
+        playerType
     }
 }
