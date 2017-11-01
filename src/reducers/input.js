@@ -11,13 +11,13 @@ const defaultState = {
     score: 0
   },
   opponentStates: {
-    name: "",
-    rank: "",
-    left: "",
-    right: "",
-    current: "",
-    upcoming: ["1", "2", "1", "1", "2", "2", "1", "1", "2", "2", "1", "2", "1"],
-    score: ""
+    name: "Bot",
+    rank: "1",
+    left: "3",
+    right: "4",
+    current: "4",
+    upcoming: ["4", "3", "4", "4", "3", "4", "4", "3", "4", "4", "3", "4", "4"],
+    score: 0
   }
 }
 
@@ -27,23 +27,22 @@ const input = (state = defaultState, action) => {
       case 'LEFT':
         return {
           ...state,
-          playerStates:{
-            ...state.playerStates,
-            upcoming: state.playerStates.upcoming.slice(1),
-            score: state.playerStates.left === state.playerStates.current ? state.playerStates.score + 1: state.playerStates.score -1,
-            current: state.playerStates.upcoming[0],
-            
+          [action.playerType]:{
+            ...state[action.playerType],
+            upcoming: state[action.playerType].upcoming.slice(1),
+            score: state[action.playerType].left === state[action.playerType].current ? state[action.playerType].score + 1: state[action.playerType].score -1,
+            current: state[action.playerType].upcoming[0],
           } 
         
         }
       case 'RIGHT':
         return {
           ...state,
-          playerStates:{
-            ...state.playerStates,
-            upcoming: state.playerStates.upcoming.slice(1),
-            score: state.playerStates.right === state.playerStates.current ? state.playerStates.score + 1: state.playerStates.score -1,
-            current: state.playerStates.upcoming[0],
+          [action.playerType]:{
+            ...state[action.playerType],
+            upcoming: state[action.playerType].upcoming.slice(1),
+            score: state[action.playerType].right === state[action.playerType].current ? state[action.playerType].score + 1: state[action.playerType].score -1,
+            current: state[action.playerType].upcoming[0],
 
           }          
         }
