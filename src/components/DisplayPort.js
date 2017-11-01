@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import FlexWrapper from './SharedComponents/FlexWrapper';
 import SideDisplay from './SideDisplay';
 
 const CentralWrapper = styled.div`
-    height:350px;
-    width: 180px;
+    height:300px;
+    width: 300px;
     display: flex;
     background-color:#eee;
     justify-content: center;
@@ -13,34 +13,42 @@ const CentralWrapper = styled.div`
 `
 
 const SideWrapper = styled.div`
-    height: 350px;
-    width: 120px;
+    height: 300px;
+    width: 100px;
     display: flex;
     background-color: red;
     justify-content: center;
     align-items:center;
 `
+const Wrapper = styled.div`
+    display:flex;
+    justify-content: space-between;
+    width: 550px;
+    top: 175px;
+    left: ${(prop) => prop.person === "player" ? 0 : ""}
+    right: ${(prop) => prop.person === "opponent" ? 0 : ""}
+`
 
 export default class DisplayPort extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
-    handleKeyPress(e){
-        console.log(e.key);        
+    handleKeyPress(e) {
+        console.log(e.key);
         e.preventDefault();
-        if (e.key === "ArrowLeft"){
+        if (e.key === "ArrowLeft") {
             this.props.onLeftSelect();
-        } else if (e.key ==="ArrowRight") {
+        } else if (e.key === "ArrowRight") {
             this.props.onRightSelect();
         }
     }
 
-    render(){
-        return(
-            <FlexWrapper tabIndex={this.props.tabIndex} onKeyDown={this.handleKeyPress}>
+    render() {
+        return (
+            <Wrapper tabIndex={this.props.tabIndex} onKeyDown={this.handleKeyPress}>
                 <SideWrapper>
                     <SideDisplay item={this.props.leftItem}></SideDisplay>
                 </SideWrapper>
@@ -48,7 +56,7 @@ export default class DisplayPort extends Component {
                 <SideWrapper>
                     <SideDisplay item={this.props.rightItem}></SideDisplay>
                 </SideWrapper>
-            </FlexWrapper>
+            </Wrapper>
         )
     }
 }
