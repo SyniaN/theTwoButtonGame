@@ -12,7 +12,6 @@ const GameContainerPadding = styled.div`
   height: 700px;
   width: 1200px;
   padding: 50px 25px;
-  border-style: dotted;
   margin: auto;
 `
 

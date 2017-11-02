@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    position: relative;
+    box-sizing: border-box;
+    border: 2px solid white;
+    position: absolute;
     top: 100px;
     left: 125px;
     width: 900px;
     height: 50px;
-    border-style: dotted;
 `
 
 class StatusBar extends Component {
