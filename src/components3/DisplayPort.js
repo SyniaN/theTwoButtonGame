@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import FlexWrapper from './SharedComponents/FlexWrapper';
 import SideDisplay from './SideDisplay';
 
 const CentralWrapper = styled.div`
@@ -56,7 +55,7 @@ export default class DisplayPort extends Component {
 
     render() {
         return (
-            <Wrapper tabIndex={this.props.tabIndex} onKeyDown={this.handleKeyPress}>
+            <Wrapper>
                 <SideWrapper>
                     <SideDisplay item={this.props.leftItem}></SideDisplay>
                 </SideWrapper>

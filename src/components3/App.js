@@ -7,12 +7,19 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   background-color: #96e8cc
 `
-
 const GameContainerPadding = styled.div`
+box-sizing: border-box;
   height: 700px;
-  width: 1200px;
+  width: 1300px;
   padding: 50px 25px;
   margin: auto;
+  position: relative;
+  &:focus {
+    outline-color: pink;
+    outline-style: auto;
+    outline-width: 5px;
+    outline-offset: -25px;
+  }
 `
 
 class App extends Component {
@@ -20,7 +27,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Header />
-        <GameContainerPadding>
+        <GameContainerPadding tabIndex="1">
           <GameContainer />
         </GameContainerPadding>
       </Wrapper>

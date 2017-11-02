@@ -10,9 +10,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     width: 1150px;
-    height: 600px;
+    height: 500px;
     margin: auto;
-    border-style: solid;
     position: relative;
 `
 
