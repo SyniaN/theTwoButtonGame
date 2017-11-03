@@ -1,8 +1,6 @@
 import React from 'react';
 import ProfileBar from './ProfileBar';
 import DisplayPortContainer from './DisplayPortContainer';
-import ItemBar from './ItemBar';
-import GemsCount from './GemsCount';
 import StatusBar from './StatusBar';
 import BottomBar from './BottomBar';
 

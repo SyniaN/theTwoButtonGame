@@ -4,7 +4,7 @@ import Styled from 'styled-components'
 const Wrapper = Styled.div`
     width: 100%;
     color: red;
-    height: 75px;
+    height: 50px;
     background-color: #ccc;
     border-style: dotted;
 `
