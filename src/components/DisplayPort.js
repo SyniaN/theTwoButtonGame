@@ -2,6 +2,38 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import SideDisplay from './SideDisplay';
 
+export default class DisplayPort extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+    }
+
+    handleKeyPress(e) {
+        console.log(e.key);
+        e.preventDefault();
+        if (e.key === "ArrowLeft") {
+            this.props.onLeftSelect();
+        } else if (e.key === "ArrowRight") {
+            this.props.onRightSelect();
+        }
+    }
+
+    render() {
+        return (
+            <Wrapper>
+                <SideWrapper>
+                    <SideDisplay item={this.props.leftItem}></SideDisplay>
+                </SideWrapper>
+                <CentralWrapper><h1>{this.props.centralItem}</h1></CentralWrapper>
+                <SideWrapper>
+                    <SideDisplay item={this.props.rightItem}></SideDisplay>
+                </SideWrapper>
+            </Wrapper>
+        )
+    }
+}
+
 const CentralWrapper = styled.div`
     box-sizing: border-box;
     height:300px;
@@ -35,35 +67,3 @@ const Wrapper = styled.div`
         border-color:transparent;
     } 
 `
-
-export default class DisplayPort extends Component {
-
-    constructor(props) {
-        super(props);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-    }
-
-    handleKeyPress(e) {
-        console.log(e.key);
-        e.preventDefault();
-        if (e.key === "ArrowLeft") {
-            this.props.onLeftSelect();
-        } else if (e.key === "ArrowRight") {
-            this.props.onRightSelect();
-        }
-    }
-
-    render() {
-        return (
-            <Wrapper>
-                <SideWrapper>
-                    <SideDisplay item={this.props.leftItem}></SideDisplay>
-                </SideWrapper>
-                <CentralWrapper><h1>{this.props.centralItem}</h1></CentralWrapper>
-                <SideWrapper>
-                    <SideDisplay item={this.props.rightItem}></SideDisplay>
-                </SideWrapper>
-            </Wrapper>
-        )
-    }
-}

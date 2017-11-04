@@ -1,6 +1,6 @@
 const defaultState = {
   time: "",
-  playerStates : {
+  playerStates: {
     name: "David",
     rank: "1",
     stars: "2",
@@ -22,33 +22,33 @@ const defaultState = {
 }
 
 const input = (state = defaultState, action) => {
-    console.log(state);
-    switch (action.type) {
-      case 'LEFT':
-        return {
-          ...state,
-          [action.playerType]:{
-            ...state[action.playerType],
-            upcoming: state[action.playerType].upcoming.slice(1),
-            score: state[action.playerType].left === state[action.playerType].current ? state[action.playerType].score + 1: state[action.playerType].score -1,
-            current: state[action.playerType].upcoming[0],
-          } 
-        
+  console.log(state);
+  switch (action.type) {
+    case 'LEFT':
+      return {
+        ...state,
+        playerStates: {
+          ...state.playerStates,
+          upcoming: state.playerStates.upcoming.slice(1),
+          score: state.playerStates.left === state.playerStates.current ? state.playerStates.score + 1 : state.playerStates.score - 1,
+          current: state.playerStates.upcoming[0],
         }
-      case 'RIGHT':
-        return {
-          ...state,
-          [action.playerType]:{
-            ...state[action.playerType],
-            upcoming: state[action.playerType].upcoming.slice(1),
-            score: state[action.playerType].right === state[action.playerType].current ? state[action.playerType].score + 1: state[action.playerType].score -1,
-            current: state[action.playerType].upcoming[0],
 
-          }          
+      }
+    case 'RIGHT':
+      return {
+        ...state,
+        playerStates: {
+          ...state.playerStates,
+          upcoming: state.playerStates.upcoming.slice(1),
+          score: state.playerStates.right === state.playerStates.current ? state.playerStates.score + 1 : state.playerStates.score - 1,
+          current: state.playerStates.upcoming[0],
+
         }
-      default:
-        return state
-    }
+      }
+    default:
+      return state
   }
-  
-  export default input
+}
+
+export default input
