@@ -9,7 +9,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     width: 1150px;
     height: 500px;
-    margin: auto;
+    margin: 50px auto;
     position: relative;
 `
 
@@ -25,10 +25,8 @@ const PlayerWindowsWrapper = styled.div`
 
 const GameContainerWrapper = styled.div`
 box-sizing: border-box;
-  height: 625px;
+  height: 800px;
   width: 1200px;
-  padding: 25px 25px;
-  margin: 25px auto;
   position: relative;
   &:focus {
     outline-color: pink;

@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     box-sizing: border-box;
     border: 2px solid white;
     position:absolute;
-    height: 75px;
+    height: 100px;
     width: 1150px;
 `
 export default class ProfileBar extends React.Component {

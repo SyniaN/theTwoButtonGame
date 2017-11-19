@@ -4,8 +4,9 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     box-sizing: border-box;
     border: 2px solid white;
-    top: 500px;
+    top: 525px;
     position:absolute;
+    width: 175px;
     height: 75px;
 `
 
