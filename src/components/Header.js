@@ -3,20 +3,18 @@ import Styled from 'styled-components'
 
 const Wrapper = Styled.div`
     width: 100%;
-    color: red;
     height: 75px;
-    background-color: #ccc;
+    background-color: cornflowerblue;
     border-style: dotted;
     top: 0px;
+    position: absolute;
 `
 
 export default class Header extends React.Component {
 
     render() {
-
         return (
             <Wrapper>
-                <p>This is my header</p>
             </Wrapper>
         )
     }

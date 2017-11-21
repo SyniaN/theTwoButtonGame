@@ -1,18 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import PlayerProfileContainer from './PlayerProfileContainer';
+import OpponentProfileContainer from './OpponentProfileContainer';
+import TimerContainer from './TimerContainer'
 
 const Wrapper = styled.div`
-    box-sizing: border-box;
-    border: 2px solid white;
     position:absolute;
-    height: 100px;
     width: 1150px;
+    display:flex;
+    justify-content:space-between;
 `
 export default class ProfileBar extends React.Component {
     render() {
         return (
             <Wrapper>
-                <h4>Profile Bar</h4>
+                <PlayerProfileContainer />
+                <TimerContainer />
+                <OpponentProfileContainer />
             </Wrapper>
         )
     }

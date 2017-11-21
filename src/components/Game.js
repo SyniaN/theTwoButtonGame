@@ -8,8 +8,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     width: 1150px;
-    height: 500px;
-    margin: 50px auto;
+    height: 600px;
+    margin: 100px auto;
     position: relative;
 `
 
@@ -26,13 +26,15 @@ const PlayerWindowsWrapper = styled.div`
 const GameContainerWrapper = styled.div`
 box-sizing: border-box;
   height: 800px;
-  width: 1200px;
+  width: 1300px;
   position: relative;
+  opacity: 0.5;
   &:focus {
-    outline-color: pink;
+    outline-color: ghostwhite;
     outline-style: auto;
     outline-width: 5px;
     outline-offset: 0px;
+    opacity: 1;
   }
 `
 

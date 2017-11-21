@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   background-color: #96e8cc;
   height: 100vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
   align-items:center;
 `
@@ -19,7 +19,6 @@ class App extends Component {
       <Wrapper>
         <Header />
         <GameContainer />
-        <span />
       </Wrapper>
     );
   }
