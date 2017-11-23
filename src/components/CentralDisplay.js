@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Shapes from './Shapes'
 
-export default class SideDisplay extends React.Component {
+export default class CentralDisplay extends React.Component {
 
     render() {
 

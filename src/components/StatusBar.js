@@ -10,25 +10,30 @@ const Wrapper = styled.div`
     width: 900px;
     height: 25px;
     display: flex;
+    justify-content: space-between;
 `
 
-const PlayerProgress = styled.div`
-    flex: 1;
+const ProgressBar = styled.div`
+    flex: ${props => props.flex ? props.flex : 0};
+    display: flex;
+    justify-content: center;
+`
+
+const PlayerProgress = ProgressBar.extend`
     background-color: cornflowerblue;
 `
 
-const OpponentProgress = styled.div`
-    flex: 1;
+const OpponentProgress = ProgressBar.extend`
     background-color: salmon;
-`
 
+`
 
 class StatusBar extends Component {
     render() {
         return (
             <Wrapper>
-                <PlayerProgress />
-                <OpponentProgress />
+                <PlayerProgress flex={this.props.playerScore}>{this.props.playerScore}</PlayerProgress>
+                <OpponentProgress flex={this.props.opponentScore}>{this.props.opponentScore}</OpponentProgress>
             </Wrapper>
         );
     }

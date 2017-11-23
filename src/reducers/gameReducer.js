@@ -4,24 +4,24 @@ const defaultState = {
     name: "David",
     rank: "1",
     stars: "2",
-    left: "1",
-    right: "2",
-    current: "1",
-    upcoming: ["1", "2", "1", "1", "2", "2", "1", "1", "2", "2", "1", "2", "1"],
+    left: "Square",
+    right: "Circle",
+    current: "Square",
+    upcoming: ["Square", "Square", "Circle", "Square", "Circle", "Square", "Circle", "Square", "Circle", "Square", "Circle", "Square", "Circle"],
     score: 0
   },
   opponentStates: {
     name: "Bot",
     rank: "1",
-    left: "3",
-    right: "4",
-    current: "4",
-    upcoming: ["4", "3", "4", "4", "3", "4", "4", "3", "4", "4", "3", "4", "4"],
+    left: "Square",
+    right: "Circle",
+    current: "Square",
+    upcoming: ["Square", "Square", "Circle", "Square", "Circle", "Square", "Circle", "Square", "Circle", "Square", "Circle", "Square", "Circle"],
     score: 0
   }
 }
 
-const input = (state = defaultState, action) => {
+const gameReducer = (state = defaultState, action) => {
   console.log(state);
   switch (action.type) {
     case 'LEFT':
@@ -51,4 +51,4 @@ const input = (state = defaultState, action) => {
   }
 }
 
-export default input
+export default gameReducer

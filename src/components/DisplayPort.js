@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import SideDisplay from './SideDisplay';
+import CentralDisplay from './CentralDisplay';
 
 export default class DisplayPort extends Component {
 
@@ -25,7 +26,9 @@ export default class DisplayPort extends Component {
                 <SideWrapper>
                     <SideDisplay item={this.props.leftItem}></SideDisplay>
                 </SideWrapper>
-                <CentralWrapper><h1>{this.props.centralItem}</h1></CentralWrapper>
+                <CentralWrapper>
+                    <CentralDisplay item={this.props.centralItem}></CentralDisplay>
+                </CentralWrapper>
                 <SideWrapper>
                     <SideDisplay item={this.props.rightItem}></SideDisplay>
                 </SideWrapper>

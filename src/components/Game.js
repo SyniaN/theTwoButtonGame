@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileBar from './ProfileBar';
 import DisplayPortContainer from './DisplayPortContainer';
-import StatusBar from './StatusBar';
+import StatusBarContainer from './StatusBarContainer';
 import BottomBar from './BottomBar';
 
 import styled from 'styled-components';
@@ -57,7 +57,7 @@ export default class GameContainer extends React.Component {
             <GameContainerWrapper tabIndex="1" onKeyDown={this.handleInput}>
                 <Wrapper>
                     <ProfileBar></ProfileBar>
-                    <StatusBar></StatusBar>
+                    <StatusBarContainer></StatusBarContainer>
                     <PlayerWindowsWrapper>
                         <DisplayPortContainer person="player"></DisplayPortContainer>
                         <DisplayPortContainer person="opponent"></DisplayPortContainer>
