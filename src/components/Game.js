@@ -25,23 +25,39 @@ const PlayerWindowsWrapper = styled.div`
 
 const GameContainerWrapper = styled.div`
 box-sizing: border-box;
-  height: 800px;
-  width: 1300px;
-  position: relative;
-  opacity: 0.5;
-  &:focus {
-    outline-color: ghostwhite;
-    outline-style: auto;
-    outline-width: 5px;
-    outline-offset: 0px;
-    opacity: 1;
-  }
+    height: 700px;
+    width: 1300px;
+    position: relative;
+    &:focus {
+        outline-color: ghostwhite;
+        outline-style: auto;
+        outline-width: 5px;
+        outline-offset: 0px;
+    }
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`
+
+const StartButton = styled.div`
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 250px;
+    height: 75px;
+    font-size: 25px;
+    cursor: pointer;
+    &:hover {
+        background-color: ghostwhite;
+    }
 `
 
 export default class GameContainer extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.handleInput = this.handleInput.bind(this)
+        this.gameDiv = [];
     }
 
     handleInput(e) {
@@ -54,16 +70,23 @@ export default class GameContainer extends React.Component {
 
     render() {
         return (
-            <GameContainerWrapper tabIndex="1" onKeyDown={this.handleInput}>
-                <Wrapper>
-                    <ProfileBar></ProfileBar>
-                    <StatusBarContainer></StatusBarContainer>
-                    <PlayerWindowsWrapper>
-                        <DisplayPortContainer person="player"></DisplayPortContainer>
-                        <DisplayPortContainer person="opponent"></DisplayPortContainer>
-                    </PlayerWindowsWrapper>
-                    <BottomBar></BottomBar>
-                </Wrapper>
+            <GameContainerWrapper tabIndex="0" onKeyDown={this.handleInput}>
+
+                {this.props.showStartButton &&
+                    <StartButton onClick={this.props.gameStart}>Start</StartButton>
+                }
+
+                {this.props.showGamePanels &&
+                    <Wrapper>
+                        <ProfileBar></ProfileBar>
+                        <StatusBarContainer></StatusBarContainer>
+                        <PlayerWindowsWrapper>
+                            <DisplayPortContainer person="player"></DisplayPortContainer>
+                            <DisplayPortContainer person="opponent"></DisplayPortContainer>
+                        </PlayerWindowsWrapper>
+                        <BottomBar></BottomBar>
+                    </Wrapper>
+                }
             </GameContainerWrapper>
         )
     }

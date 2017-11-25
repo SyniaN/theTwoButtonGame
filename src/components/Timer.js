@@ -17,10 +17,10 @@ const Time = styled.h1`
     color: ghostwhite;
 `
 
-const Timer = () => {
+const Timer = (props) => {
     return (
         <Wrapper>
-            <Time>0:24</Time>
+            <Time>{props.timeString}</Time>
         </Wrapper>
     );
 };

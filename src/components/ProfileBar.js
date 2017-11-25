@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PlayerProfileContainer from './PlayerProfileContainer';
 import OpponentProfileContainer from './OpponentProfileContainer';
-import TimerContainer from './TimerContainer'
+import TimerContainer from './TimerContainer';
 
 const Wrapper = styled.div`
     position:absolute;
