@@ -1,6 +1,7 @@
 import React from 'react';
 import ProfileBar from './ProfileBar';
-import DisplayPortContainer from './DisplayPortContainer';
+import PlayerDisplayPortContainer from './PlayerDisplayPortContainer';
+import OpponentDisplayPortContainer from './OpponentDisplayPortContainer';
 import StatusBarContainer from './StatusBarContainer';
 import BottomBar from './BottomBar';
 
@@ -81,8 +82,8 @@ export default class GameContainer extends React.Component {
                         <ProfileBar></ProfileBar>
                         <StatusBarContainer></StatusBarContainer>
                         <PlayerWindowsWrapper>
-                            <DisplayPortContainer person="player"></DisplayPortContainer>
-                            <DisplayPortContainer person="opponent"></DisplayPortContainer>
+                            <PlayerDisplayPortContainer></PlayerDisplayPortContainer>
+                            <OpponentDisplayPortContainer></OpponentDisplayPortContainer>
                         </PlayerWindowsWrapper>
                         <BottomBar></BottomBar>
                     </Wrapper>

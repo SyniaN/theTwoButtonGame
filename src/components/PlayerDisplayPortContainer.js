@@ -4,20 +4,20 @@ import DisplayPort from './DisplayPort';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        leftItem: state.game[ownProps.person + "States"].left,
-        centralItem: state.game[ownProps.person + "States"].current,
-        rightItem: state.game[ownProps.person + "States"].right,
-        tabIndex: ownProps.person === "player" ? "1" : "2"
+        leftItem: state.game.playerStates.left,
+        centralItem: state.game.playerStates.current,
+        rightItem: state.game.playerStates.right,
+        tabIndex: "1"
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onLeftSelect: () => {
-            dispatch(playerLeft(ownProps.person + "States"))
+            dispatch(playerLeft())
         },
         onRightSelect: () => {
-            dispatch(playerRight(ownProps.person + "States"))
+            dispatch(playerRight())
         }
     }
 }

@@ -11,7 +11,6 @@ export default class DisplayPort extends Component {
     }
 
     handleKeyPress(e) {
-        console.log(e.key);
         e.preventDefault();
         if (e.key === "ArrowLeft") {
             this.props.onLeftSelect();
