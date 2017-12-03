@@ -79,7 +79,7 @@ const AI = () => {
     }
 
     if (current && !actionPlanned) {
-        const randomTime = Math.floor(Math.random()) * 1000 + 500
+        const randomTime = Math.floor(Math.random()) * 1000 + 300
         actionPlanned = true;
         setTimeout(() => {
             if (current === left) {
