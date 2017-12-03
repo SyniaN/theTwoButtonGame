@@ -1,23 +1,24 @@
 import * as ActionTypes from '../ActionTypes';
+import generateShape from '../controller/shapeGenerator';
 
 export const playerLeft = () => {
     return {
         type: ActionTypes.PLAYER_LEFT,
-        nextItem: ""
+        nextItem: generateShape()
     }
 }
 
 export const playerRight = () => {
     return {
         type: ActionTypes.PLAYER_RIGHT,
-        nextItem: ""
+        nextItem: generateShape()
     }
 }
 
 export const opponentLeft = () => {
     return {
         type: ActionTypes.OPPONENT_LEFT,
-        nextItem: ""
+        nextItem: generateShape();
     }
 }
 
@@ -25,7 +26,7 @@ export const opponentRight = () => {
     return (getState, dispatch) => {
         return {
             type: ActionTypes.OPPONENT_RIGHT,
-            nextItem: ""
+            nextItem: generateShape();
         }
     }
 }

@@ -1,5 +1,6 @@
-import React from 'react'
-import * as Shapes from './Shapes'
+import React from 'react';
+import * as Shapes from './Shapes';
+import * as ShapeTypes from '../ShapeTypes';
 
 export default class CentralDisplay extends React.Component {
 
@@ -8,10 +9,10 @@ export default class CentralDisplay extends React.Component {
         let shapeToDisplay = <Shapes.Square />;
 
         switch (this.props.item) {
-            case "Square":
+            case ShapeTypes.SQUARE:
                 shapeToDisplay = <Shapes.Square />
                 break;
-            case "Circle":
+            case ShapeTypes.CIRCLE:
                 shapeToDisplay = <Shapes.Circle />
                 break;
             default:
