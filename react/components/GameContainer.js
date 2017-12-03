@@ -12,8 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        inputLeft: player => dispatch(actions.inputLeft(player)),
-        inputRight: player => dispatch(actions.inputRight(player)),
+        playerLeft: player => dispatch(actions.playerLeft()),
+        playerRight: player => dispatch(actions.playerRight()),
         gameStart: () => dispatch(actions.gameStart())
     }
 }

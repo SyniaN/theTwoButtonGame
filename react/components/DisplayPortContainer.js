@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { inputLeft, inputRight } from '../actions';
+import { playerLeft, playerRight } from '../actions';
 import DisplayPort from './DisplayPort';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,10 +14,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onLeftSelect: () => {
-            dispatch(inputLeft(ownProps.person + "States"))
+            dispatch(playerLeft(ownProps.person + "States"))
         },
         onRightSelect: () => {
-            dispatch(inputRight(ownProps.person + "States"))
+            dispatch(playerRight(ownProps.person + "States"))
         }
     }
 }

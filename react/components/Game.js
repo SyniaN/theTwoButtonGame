@@ -62,9 +62,9 @@ export default class GameContainer extends React.Component {
 
     handleInput(e) {
         if (e.key === "ArrowLeft") {
-            this.props.inputLeft();
+            this.props.playerLeft();
         } else if (e.key === "ArrowRight") {
-            this.props.inputRight();
+            this.props.playerRight();
         }
     }
 

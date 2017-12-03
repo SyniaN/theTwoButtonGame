@@ -1,16 +1,32 @@
 import * as ActionTypes from '../ActionTypes';
 
-export const inputLeft = (playerType) => {
+export const playerLeft = () => {
     return {
-        type: ActionTypes.LEFT,
-        playerType
+        type: ActionTypes.PLAYER_LEFT,
+        nextItem: ""
     }
 }
 
-export const inputRight = (playerType) => {
+export const playerRight = () => {
     return {
-        type: ActionTypes.RIGHT,
-        playerType
+        type: ActionTypes.PLAYER_RIGHT,
+        nextItem: ""
+    }
+}
+
+export const opponentLeft = () => {
+    return {
+        type: ActionTypes.OPPONENT_LEFT,
+        nextItem: ""
+    }
+}
+
+export const opponentRight = () => {
+    return (getState, dispatch) => {
+        return {
+            type: ActionTypes.OPPONENT_RIGHT,
+            nextItem: ""
+        }
     }
 }
 

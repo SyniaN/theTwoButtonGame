@@ -1,5 +1,7 @@
-export const LEFT = 'LEFT';
-export const RIGHT = 'RIGHT';
+export const PLAYER_LEFT = 'PLAYER_LEFT';
+export const PLAYER_RIGHT = 'PLAYER_RIGHT';
+export const OPPONENT_LEFT = 'OPPONENT_LEFT';
+export const OPPONENT_RIGHT = 'OPPONENT_RIGHT';
 export const INC_TIMER = 'INC_TIMER';
 export const DEC_TIMER = 'DEC_TIMER';
 export const RESET_TIMER = 'RESET_TIMER';

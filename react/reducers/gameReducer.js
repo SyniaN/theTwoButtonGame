@@ -25,26 +25,43 @@ const defaultState = {
 
 const gameReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case ActionTypes.LEFT:
+        case ActionTypes.PLAYER_LEFT:
             return {
                 ...state,
                 playerStates: {
                     ...state.playerStates,
-                    upcoming: state.playerStates.upcoming.slice(1),
                     score: state.playerStates.left === state.playerStates.current ? state.playerStates.score + 1 : state.playerStates.score - 1,
-                    current: state.playerStates.upcoming[0],
+                    current: state.playerStates.left === state.playerStates.current ? action.nextItem : state.playerStates.current
                 }
 
             }
-        case ActionTypes.RIGHT:
+        case ActionTypes.PLAYER_RIGHT:
             return {
                 ...state,
                 playerStates: {
                     ...state.playerStates,
                     upcoming: state.playerStates.upcoming.slice(1),
                     score: state.playerStates.right === state.playerStates.current ? state.playerStates.score + 1 : state.playerStates.score - 1,
-                    current: state.playerStates.upcoming[0],
-
+                    current: state.playerStates.right === state.playerStates.current ? action.nextItem : state.playerStates.current
+                }
+            }
+        case ActionTypes.OPPONENT_LEFT:
+            return {
+                ...state,
+                opponentStates: {
+                    ...state.opponentStates,
+                    score: state.opponentStates.left === state.opponentStates.current ? state.opponentStates.score + 1 : state.opponentStates.score - 1,
+                    current: state.opponentStates.left === state.opponentStates.current ? action.nextItem : state.opponentStates.current
+                }
+            }
+        case ActionTypes.OPPONENT_RIGHT:
+            return {
+                ...state,
+                opponentStates: {
+                    ...state.opponentStates,
+                    upcoming: state.opponentStates.upcoming.slice(1),
+                    score: state.opponentStates.right === state.opponentStates.current ? state.opponentStates.score + 1 : state.opponentStates.score - 1,
+                    current: state.opponentStates.right === state.opponentStates.current ? action.nextItem : state.opponentStates.current
                 }
             }
         case ActionTypes.INC_TIMER:
