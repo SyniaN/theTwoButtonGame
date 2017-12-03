@@ -1,8 +1,10 @@
-import * as shapeTyeps from '../ShapeTypes';
+import * as shapeTypes from '../ShapeTypes';
 
-export default generateShape = () => {
+const generateShape = () => {
     const typesKeys = Object.keys(shapeTypes);
-    const index = Math.random() * typesArray.length;
-    const value = shapesTypes[typesKEys[index]];
+    const index = Math.floor(Math.random() * typesKeys.length);
+    const randomeShapeType = shapeTypes[typesKeys[index]];
     return randomeShapeType;
 }
+
+export default generateShape;

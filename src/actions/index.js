@@ -18,16 +18,14 @@ export const playerRight = () => {
 export const opponentLeft = () => {
     return {
         type: ActionTypes.OPPONENT_LEFT,
-        nextItem: generateShape();
+        nextItem: generateShape()
     }
 }
 
 export const opponentRight = () => {
-    return (getState, dispatch) => {
-        return {
-            type: ActionTypes.OPPONENT_RIGHT,
-            nextItem: generateShape();
-        }
+    return {
+        type: ActionTypes.OPPONENT_RIGHT,
+        nextItem: generateShape()
     }
 }
 
@@ -51,7 +49,11 @@ export const resetTimer = () => {
 
 export const gameStart = () => {
     return {
-        type: ActionTypes.GAME_START
+        type: ActionTypes.GAME_START,
+        playerItem: generateShape(),
+        opponentItem: generateShape(),
+        left: 'SQUARE',
+        right: 'CIRCLE'
     }
 }
 

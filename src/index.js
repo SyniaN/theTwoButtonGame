@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import logger from 'redux-logger';
 
 import appReducer from './reducers/appReducer';
@@ -14,7 +14,7 @@ import registerServiceWorker from './registerServiceWorker';
 const initialState = {
     game: {
         gameState: GameStates.PRE_GAME,
-        time: 120,
+        time: 30,
         playerStates: {
             name: "David",
             rank: "1",
@@ -35,7 +35,10 @@ const initialState = {
     }
 }
 
-let store = createStore(appReducer, initialState, applyMiddleware(logger));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let store = createStore(appReducer, initialState, composeEnhancers(
+    applyMiddleware(logger)
+));
 
 render(
     <Provider store={store}>
@@ -45,11 +48,11 @@ render(
 );
 
 let prevGameState = GameStates.PRE_GAME;
-let myTimeOut;
+let myInterval;
 const timerLogic = () => {
     let currentGameState = store.getState().game.gameState;
     if (prevGameState === GameStates.PRE_GAME && currentGameState === GameStates.MID_GAME) {
-        myTimeOut = setTimeout(() => {
+        myInterval = setInterval(() => {
             if (store.getState().game.time > 0) {
                 store.dispatch(Actions.decrementTimer());
             } else {
@@ -57,10 +60,39 @@ const timerLogic = () => {
             }
         }, 1000);
     } else if (prevGameState === GameStates.MID_GAME && currentGameState === GameStates.POST_GAME) {
-        clearTimeout(myTimeOut);
+        clearInterval(myInterval);
+    }
+    prevGameState = currentGameState;
+}
+
+let actionPlanned = false;
+const AI = () => {
+    let current;
+    let left;
+    if (store.getState().game.gameState === GameStates.MID_GAME) {
+        console.log('setting current');
+        current = store.getState().game.opponentStates.current;
+        left = store.getState().game.opponentStates.left;
+    } else {
+        current = undefined;
+        left = undefined;
+    }
+
+    if (current && !actionPlanned) {
+        const randomTime = Math.floor(Math.random()) * 1000 + 500
+        actionPlanned = true;
+        setTimeout(() => {
+            if (current === left) {
+                store.dispatch(Actions.opponentLeft());
+            } else {
+                store.dispatch(Actions.opponentRight());
+            }
+            actionPlanned = false;
+        }, randomTime)
     }
 }
 
-store.subscribe(timerLogic)
+store.subscribe(timerLogic);
+store.subscribe(AI);
 
 registerServiceWorker();

@@ -40,7 +40,6 @@ const gameReducer = (state = defaultState, action) => {
                 ...state,
                 playerStates: {
                     ...state.playerStates,
-                    upcoming: state.playerStates.upcoming.slice(1),
                     score: state.playerStates.right === state.playerStates.current ? state.playerStates.score + 1 : state.playerStates.score - 1,
                     current: state.playerStates.right === state.playerStates.current ? action.nextItem : state.playerStates.current
                 }
@@ -59,7 +58,6 @@ const gameReducer = (state = defaultState, action) => {
                 ...state,
                 opponentStates: {
                     ...state.opponentStates,
-                    upcoming: state.opponentStates.upcoming.slice(1),
                     score: state.opponentStates.right === state.opponentStates.current ? state.opponentStates.score + 1 : state.opponentStates.score - 1,
                     current: state.opponentStates.right === state.opponentStates.current ? action.nextItem : state.opponentStates.current
                 }
@@ -82,7 +80,21 @@ const gameReducer = (state = defaultState, action) => {
         case ActionTypes.GAME_START:
             return {
                 ...state,
-                gameState: GameStates.MID_GAME
+                gameState: GameStates.MID_GAME,
+                playerStates: {
+                    ...state.playerStates,
+                    score: 0,
+                    current: action.playerItem,
+                    left: action.left,
+                    right: action.right
+                },
+                opponentStates: {
+                    ...state.opponentStates,
+                    score: 0,
+                    current: action.opponentItem,
+                    left: action.left,
+                    right: action.right
+                },
             }
         case ActionTypes.GAME_STOP:
             return {
